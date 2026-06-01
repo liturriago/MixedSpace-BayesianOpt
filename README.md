@@ -60,7 +60,7 @@ MixedSpace-BayesianOpt/
 │   ├── acquisition.py # EI, PF, Adquisición combinada y optimización L-BFGS-B
 │   ├── model.py       # Modelo SimpleUNet, Focal Loss y evaluación de época en PyTorch
 │   └── data.py        # Dataloaders de Oxford-IIIT Pet con subconjuntos reducidos
-├── main.py            # Script principal orquestador en formato Jupytext
+├── main.ipynb         # Notebook principal
 ├── README.md          # Este archivo de documentación
 └── plots/
     └── progreso_optimizacion.png # Gráfico de evolución temporal y rendimiento
