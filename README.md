@@ -9,9 +9,9 @@ El objetivo del framework es maximizar el coeficiente **Validation Dice Score** 
 ## 1. Planteamiento del Problema
 
 La sintonización de hiperparámetros se realiza sobre un espacio de búsqueda continuo-discreto mixto de 3 dimensiones ($d = 3$):
-1. **Tasa de aprendizaje ($\log_{10}(\text{learning\_rate})$)**: Variable continua $x_1 \in [-5.0, -1.0]$ que mapea un rango real de $\text{lr} \in [10^{-5}, 10^{-1}]$.
+1. **Tasa de aprendizaje** ($\log_{10}(\text{lr})$): Variable continua $x_1 \in [-5.0, -1.0]$ que mapea un rango real de $\text{lr} \in [10^{-5}, 10^{-1}]$.
 2. **Parámetro $\alpha_{\text{focal}}$**: Variable continua $x_2 \in [0.1, 0.9]$ que controla el balance de clases en la función de costo *Focal Loss*, manteniendo $\gamma = 2.0$ fijo.
-3. **Tipo de optimizador (`optimizer_type`)**: Variable categórica indexada en $\{0: \text{'Adam'}, 1: \text{'RMSprop'}, 2: \text{'SGD\_Momentum'}\}$.
+3. **Tipo de optimizador (`optimizer_type`)**: Variable categórica indexada en el conjunto `{0: 'Adam', 1: 'RMSprop', 2: 'SGD_Momentum'}`.
 
 ### Relajación Continua por Proyección
 Para manejar la variable categórica utilizando Procesos Gaussianos continuos:
@@ -73,25 +73,5 @@ MixedSpace-BayesianOpt/
 Asegúrate de contar con Python 3.8+ y las bibliotecas científicas estándar de Python instaladas:
 
 ```bash
-pip install numpy torch torchvision scipy matplotlib jupytext
-```
-
----
-
-## 5. Ejecución del Proyecto
-
-### 5.1 Ejecución como Script Estándar
-Puedes ejecutar todo el ciclo de sintonización bayesiana de manera secuencial en terminal ejecutando:
-
-```bash
-python main.py
-```
-
-El script descargará automáticamente el dataset Oxford-IIIT Pet en la carpeta `./data` (en caso de no existir), preparará los subconjuntos reducidos para acelerar las evaluaciones en CPU, y completará las iteraciones guardando el reporte gráfico final en `plots/progreso_optimizacion.png`.
-
-### 5.2 Conversión a Jupyter Notebook (Jupytext)
-El archivo `main.py` utiliza marcadores de celdas estándar `# %%` compatibles con **Jupytext**. Puedes abrir este script directamente en editores como VS Code como un notebook interactivo o convertirlo a formato `.ipynb` clásico ejecutando:
-
-```bash
-jupytext --to notebook main.py
+pip install numpy torch torchvision scipy matplotlib
 ```
